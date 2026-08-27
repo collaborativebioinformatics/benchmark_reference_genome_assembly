@@ -16,5 +16,4 @@ submitter includes the DNANexus input stage. Then run:
 bash 09-orchestration/01-submit-analysis.sh
 ```
 
-Results are written to `benchmarking/results/`. `SCRIPT-MANIFEST.tsv` maps every
-exported executable to its original source.
+Results are written to `benchmarking/results/`.
