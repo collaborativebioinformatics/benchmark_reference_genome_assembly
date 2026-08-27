@@ -1,0 +1,5 @@
+build,assembly,contigs,repetitive_kmers_k15,notes
+hs1,T2T-CHM13,25,66872,chromosome-level; no unplaced scaffolds; run at 30x (39 cells) and 15x (20 cells)
+hg38,GRCh38,455,66836,includes unplaced scaffolds and alt loci
+hg19,GRCh37,93,66667,includes unplaced contigs
+hg18,NCBI36,49,66717,
