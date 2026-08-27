@@ -168,7 +168,7 @@ cat "versions.${BUILD}.txt"
 # -----------------------------------------------------------------------------
 # 8. Upload and verify
 # -----------------------------------------------------------------------------
-dx upload --path "${OUTDIR}/" "$VCF" "HG002.${BUILD}.winnowmap.snf" "versions.${BUILD}.txt"
+dx upload --path "${OUTDIR}/" "$VCF" "HG002.${BUILD}.winnowmap.sniffles.snf" "versions.${BUILD}.txt"
 echo "== ${OUTDIR} =="
 dx ls -l "$OUTDIR"
 log "done: ${BUILD}"
