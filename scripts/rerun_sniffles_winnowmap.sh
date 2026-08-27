@@ -67,7 +67,7 @@ VCF="HG002.${BUILD}.winnowmap.sniffles.vcf.gz"
 log "calling with sniffles"
 
 sniffles --input "$BAM" --reference "$REF" \
-         --vcf "$VCF" --snf "HG002.${BUILD}.winnowmap.snf" \
+         --vcf "$VCF" --snf "HG002.${BUILD}.winnowmap.sniffles.snf" \
          --minsvlen 50 --output-rnames --threads "$THREADS" --allow-overwrite
 
 # -----------------------------------------------------------------------------
@@ -94,7 +94,7 @@ dx mkdir -p "$OUTDIR"
 
 dx upload --path "${OUTDIR}/" \
     "$VCF" \
-    "HG002.${BUILD}.winnowmap.snf" \
+    "HG002.${BUILD}.winnowmap.sniffles.snf" \
     "versions.${BUILD}.txt"
 
 echo "== ${OUTDIR} =="
