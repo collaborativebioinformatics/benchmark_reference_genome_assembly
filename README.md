@@ -3,7 +3,7 @@
 ---
 
 ## Research Focus
-> How much of the SV callset changes as the reference assembly improves from an early draft (hg15) to a complete telomere-to-telomere assembly (T2T-CHM13) and what fraction of that change can be measured directly?
+How much of the SV callset changes as the reference assembly improves from an early draft (hg15) to a complete telomere-to-telomere assembly (T2T-CHM13) and what fraction of that change can be measured directly?
 
 ---
 
