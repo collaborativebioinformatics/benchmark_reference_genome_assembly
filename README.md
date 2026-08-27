@@ -22,18 +22,18 @@ Structural variant detection is always relative to a reference assembly, and whi
 Our current workflow only consists of the benchmark sample HG002 from the PacBio CCS long-reads 15kb (~30x coverage). Which was then subsampled deterministically prior to alignment, to ~15x rather than the full 30x, primarily to reduce runtime across 7 reference builds x 2 aligners.
 
 **2. Read Alignment**  
-Reads were aligned to each reference build independently using 2 long-read aligners, run in parallel: **Winnowmap v2.03** and **minimap2**.  
+Reads were aligned to each reference build independently using 2 long-read aligners, run in parallel: **Winnowmap** and **minimap2**.  
 
-- **Winnowmap**: a repetitive k-mer list was pre-computed for each reference build with Meryl v1.4.2 and supplied via `-W` flag and alignment was run with `-ax map-pb` preset
+- **Winnowmap**: a repetitive k-mer list was pre-computed for each reference build with Meryl and supplied via `-W` flag and alignment was run with `-ax map-pb` preset
 - **minimap2**: alignment was run with the `-ax map-hifi` preset, intended for CCS/HiFi data  
 
-Both aligners were run genome-wide to avoid displacing reads that align more accurately elsewhere in the genome onto the target regions, which would display false structural-variant signal. Alignments were coordinate-sorted and indexed with samtools v1.24.  
+Both aligners were run genome-wide to avoid displacing reads that align more accurately elsewhere in the genome onto the target regions, which would display false structural-variant signal. Alignments were coordinate-sorted and indexed with samtools.  
 
-**4. Sort and Index - samtools 1.24**  
-Sorted and indexed the aligned reads using samtools v1.24
+**4. Sort and Index - samtools**  
+Sorted and indexed the aligned reads using samtools
 
-**5. Structural Variant Calling - Sniffles2 v2.3.2**  
-Structural variants were called from each whole-genome alignment using Sniffles2 v2.3.2 using the following parameter: `--minsvlen 50`, and produced 1 VCF and 1 SNF file per reference build x aligner combination.  
+**5. Structural Variant Calling - Sniffles2**  
+Structural variants were called from each whole-genome alignment using Sniffles2 using the following parameter: `--minsvlen 50`, and produced 1 VCF and 1 SNF file per reference build x aligner combination.  
 
 **Benchmarking**  
 [In works]
@@ -43,9 +43,9 @@ Structural variants were called from each whole-genome alignment using Sniffles2
 | :--- | :--- |
 | winnowmap | 2.03 |
 | meryl | 1.4.2 |
-| sniffles | 2.8.0 |
+| sniffles2 | 2.8.0 |
 | minimap2 |  |
-| samtools |  |
+| samtools | 1.24 |
 | rasusa |  |
 | szstd |  |
 
