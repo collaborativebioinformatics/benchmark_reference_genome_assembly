@@ -1,0 +1,7 @@
+layer	assembly	cell_or_model	source_url	local_path	status
+ChromHMM	GRCh38	E116 GM12878; Roadmap joint core 15-state	https://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/E116_15_coreMarks_hg38lift_mnemonics.bed.gz	inputs/annotations/chromhmm/grch38/E116_15_coreMarks_hg38lift_mnemonics.bed.gz	selected
+GENCODE	hs1	GENCODE v35 CAT/Liftoff v2	https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/chm13.draft_v2.0.gene_annotation.gff3	inputs/annotations/gencode/hs1/chm13.draft_v2.0.gene_annotation.gff3	selected
+RepeatMasker	hs1	RepeatMasker 4.1.2-p1 2022-04-14	https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/chm13v2.0_RepeatMasker_4.1.2p1.2022Apr14.bed	inputs/annotations/repeatmasker/hs1/chm13v2.0_RepeatMasker_4.1.2p1.2022Apr14.bed	selected
+segmental_duplication	hs1	T2T CHM13 v2022-03-11 simple BED	https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/chm13v2.0_SD.bed	inputs/annotations/segdup/hs1/chm13v2.0_SD.bed	selected
+mappability_unique_100	hs1	Umap single-read unique 100-mers	http://hgdownload.soe.ucsc.edu/gbdb/hs1/hoffmanMappability/k100.Unique.Mappability.bb	inputs/annotations/mappability/hs1/k100.Unique.Mappability.bb	selected
+mappability_multi_100	hs1	Umap multi-read probability 100-mers	http://hgdownload.soe.ucsc.edu/gbdb/hs1/hoffmanMappability/k100.Umap.MultiTrackMappability.bw	inputs/annotations/mappability/hs1/k100.Umap.MultiTrackMappability.bw	selected

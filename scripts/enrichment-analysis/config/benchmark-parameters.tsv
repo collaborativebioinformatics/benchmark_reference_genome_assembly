@@ -1,0 +1,12 @@
+parameter	value	reason
+truth_build	hs1	Keep the GIAB T2T-CHM13v2.0 v5.0q truth coordinates unchanged
+minimum_sv_length	50	Match the Sniffles minimum SV length and planned reporting threshold
+comparison_reference_distance	500	Truvari default breakpoint-distance threshold
+minimum_size_similarity	0.70	Truvari default
+minimum_sequence_similarity	0.70	Truvari default where sequences can be compared
+minimum_reciprocal_overlap	0.00	Truvari default
+liftover_maximum_length_change	0.05	Conservative liftoverSV default; failed records remain in the audit
+call_filter	PASS	Remove Sniffles records filtered as GT before comparison
+truth_filter	all	GIAB v5.0q uses benchmark-specific filters rather than PASS
+truth_bed	inputs/truth/hs1/HG002_CHM13v2.0_v5.0q_stvar.benchmark.bed	Require both breakpoints to be contained in one high-confidence interval
+

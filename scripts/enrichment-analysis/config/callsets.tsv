@@ -1,0 +1,15 @@
+task_id	arm	build	sniffles_version	input_vcf	source_fasta	chain_to_hs1
+1	minimap2	hg15	2.8.0	inputs/sniffles/minimap2/hg15/HG002.hg15.minimap2.map-hifi.sniffles.vcf	../references/hg15/hg15.fa	../liftover/chains/hg15/hs1/hg15ToHs1.over.chain.gz
+2	minimap2	hg16	2.8.0	inputs/sniffles/minimap2/hg16/HG002.hg16.minimap2.map-hifi.sniffles.vcf	../references/hg16/hg16.fa	../liftover/chains/hg16/hs1/hg16ToHs1.over.chain.gz
+3	minimap2	hg17	2.8.0	inputs/sniffles/minimap2/hg17/HG002.hg17.minimap2.map-hifi.sniffles.vcf	../references/hg17/hg17.fa	../liftover/chains/hg17/hs1/hg17ToHs1.over.chain.gz
+4	minimap2	hg18	2.8.0	inputs/sniffles/minimap2/hg18/HG002.hg18.minimap2.map-hifi.sniffles.vcf	../references/hg18/hg18.fa	../liftover/chains/hg18/hs1/hg18ToHs1.over.chain.gz
+5	minimap2	hg19	2.8.0	inputs/sniffles/minimap2/hg19/HG002.hg19.minimap2.map-hifi.sniffles.vcf	../references/hg19/hg19.fa	../liftover/chains/hg19/hs1/hg19ToHs1.over.chain.gz
+6	minimap2	hg38	2.8.0	inputs/sniffles/minimap2/hg38/HG002.hg38.minimap2.map-hifi.sniffles.vcf	../references/hg38/hg38.fa	../liftover/chains/hg38/hs1/hg38ToHs1.over.chain.gz
+7	minimap2	hs1	2.8.0	inputs/sniffles/minimap2/hs1/HG002.hs1.minimap2.map-hifi.sniffles.vcf	../references/hs1/hs1.fa	.
+8	winnowmap	hg15	2.8.0	inputs/sniffles/winnowmap/hg15/HG002.hg15.winnowmap.sniffles.vcf.gz	../references/hg15/hg15.fa	../liftover/chains/hg15/hs1/hg15ToHs1.over.chain.gz
+9	winnowmap	hg16	2.8.0	inputs/sniffles/winnowmap/hg16/HG002.hg16.winnowmap.sniffles.vcf.gz	../references/hg16/hg16.fa	../liftover/chains/hg16/hs1/hg16ToHs1.over.chain.gz
+10	winnowmap	hg17	2.8.0	inputs/sniffles/winnowmap/hg17/HG002.hg17.winnowmap.sniffles.vcf.gz	../references/hg17/hg17.fa	../liftover/chains/hg17/hs1/hg17ToHs1.over.chain.gz
+11	winnowmap	hg18	2.8.0	inputs/sniffles/winnowmap/hg18/HG002.hg18.winnowmap.sniffles.vcf.gz	../references/hg18/hg18.fa	../liftover/chains/hg18/hs1/hg18ToHs1.over.chain.gz
+12	winnowmap	hg19	2.8.0	inputs/sniffles/winnowmap/hg19/HG002.hg19.winnowmap.sniffles.vcf.gz	../references/hg19/hg19.fa	../liftover/chains/hg19/hs1/hg19ToHs1.over.chain.gz
+13	winnowmap	hg38	2.8.0	inputs/sniffles/winnowmap/hg38/HG002.hg38.winnowmap.sniffles.vcf.gz	../references/hg38/hg38.fa	../liftover/chains/hg38/hs1/hg38ToHs1.over.chain.gz
+14	winnowmap	hs1	2.8.0	inputs/sniffles/winnowmap/hs1/HG002.hs1.winnowmap.sniffles.vcf.gz	../references/hs1/hs1.fa	.

@@ -1,0 +1,6 @@
+arm	build	dx_path	dx_file_id	reason
+winnowmap	hs1	/results/winnowmap/hs1/HG002.hs1.winnowmap.sniffles.vcf.gz	file-JB7qY3Q0Z7QF6b5pYk5B3kYk	full-data run; selected hs1_15x to match the 20-cell subset used by the other callsets
+winnowmap	hg18	/results/winnowmap/hg18/HG002.hg18.winnowmap.sniffles.vcf.gz	file-JB7qk500Z7QFqv8718zjgkjx	Sniffles 2.3.2 callset superseded by the uniform Sniffles 2.8.0 recall
+winnowmap	hg19	/results/winnowmap/hg19/HG002.hg19.winnowmap.sniffles.vcf.gz	file-JB7qj3Q0Z7Q5f9YK0X1j07vp	Sniffles 2.3.2 callset superseded by the uniform Sniffles 2.8.0 recall
+winnowmap	hg38	/results/winnowmap/hg38/HG002.hg38.winnowmap.sniffles.vcf.gz	file-JB7qq2j0Z7QFZQ0gpY5Pp29Z	Sniffles 2.3.2 callset superseded by the uniform Sniffles 2.8.0 recall
+winnowmap	hs1	/results/winnowmap/hs1_15x/HG002.hs1.winnowmap.sniffles.vcf.gz	file-JB7qbY00Z7QPKPgvK24bpG33	Sniffles 2.3.2 callset superseded by the uniform Sniffles 2.8.0 recall
