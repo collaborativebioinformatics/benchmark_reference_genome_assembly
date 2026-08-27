@@ -41,14 +41,22 @@ Sorted and indexed the aligned reads using samtools v1.24
 **4. Structural Variant Calling - Sniffles2 v2.3.2**  
 Structural variants were called from each whole-genome alignment using Sniffles2 v2.3.2 using the following parameter: `--minsvlen 50`, and produced 1 VCF and 1 SNF file per reference build x aligner combination.  
 
-**Benchmarking Against Truth Sets**  
+**Benchmarking**  
 [In works]
 
-## Solution
+## Tools Used:
+| Tool | Version |
+| :--- | :--- |
+| winnowmap | 2.03 |
+| meryl | 1.4.2 |
+| sniffles |  |
+| samtools |  |
+| rasusa |  |
+| szstd |  |
 
 ## Workflow Diagram [in-works]
 
-![Workflow Illustration](group4_flowchart_diagram.png)
+![Workflow Illustration](flowchart_diagram.png)
 
 ## Results
 
@@ -68,3 +76,4 @@ Structural variants were called from each whole-genome alignment using Sniffles2
 | Yunkia Liu | xxx |
 
 ## References
+Smolka, M., Paulin, L.F., Grochowski, C.M. et al. Detection of mosaic and population-level structural variants with Sniffles2. Nat Biotechnol 42, 1571–1580 (2024). https://doi.org/10.1038/s41587-023-02024-y
