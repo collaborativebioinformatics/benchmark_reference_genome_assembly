@@ -1,17 +1,11 @@
 # Benchmarking the Impact of Reference Genome Quality on SV Discovery
 
----
-
 ## Research Focus
 How much of the SV callset changes as the reference assembly improves from an early draft (hg15) to a complete telomere-to-telomere assembly (T2T-CHM13) and what fraction of that change can be measured directly?
-
----
 
 ## Background
 
 Structural variant detection is always relative to a reference assembly, and while humans now have a complete telomere-to-telomere reference, most species are stuck with fragmented draft assemblies. Researchers calling SVs against such drafts have no principled way to know what their callset is missing. Therefore, we would like to systematically investigate how assembly quality influences SV calling.
-
----
 
 ## Methods  
 **Reference Genome Assemblies**  
@@ -49,7 +43,8 @@ Structural variants were called from each whole-genome alignment using Sniffles2
 | :--- | :--- |
 | winnowmap | 2.03 |
 | meryl | 1.4.2 |
-| sniffles |  |
+| sniffles | 2.8.0 |
+| minimap2 |  |
 | samtools |  |
 | rasusa |  |
 | szstd |  |
@@ -66,10 +61,8 @@ Structural variants were called from each whole-genome alignment using Sniffles2
 | **Susanne Pfeifer** | Group Leader |
 | Alisa Iakupova | xxx |
 | Daniil Khlebnikov | xxx |
-| Gerald McCollam | xxx |
 | German Demidov | xxx |
 | Miguel Angel Trejo Acosta | xxx |
-| Nirajan Bhattarai | xxx |
 | Steven Chen | xxx |
 | Tammy Sisodiya | xxx |
 | Vy Dang | xxx |
