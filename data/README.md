@@ -13,15 +13,15 @@
 
 Seven UCSC builds spanning ~20 years of assembly quality, downloaded from UCSC goldenPath and repackaged (with per-build aligner indices) at `Group4_2026:/reference-assets/releases/2026-08-25/`:
 
-| build | assembly | source |
-|---|---|---|
-| hs1  | T2T-CHM13 v2.0 | https://hgdownload.soe.ucsc.edu/goldenPath/hs1/bigZips/hs1.fa.gz |
-| hg38 | GRCh38 | https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz |
-| hg19 | GRCh37 | https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz |
-| hg18 | NCBI36 | https://hgdownload.soe.ucsc.edu/goldenPath/hg18/bigZips/hg18.fa.gz |
-| hg17 | NCBI35 | https://hgdownload.soe.ucsc.edu/goldenPath/hg17/bigZips/hg17.fa.gz |
-| hg16 | NCBI34 | https://hgdownload.soe.ucsc.edu/goldenPath/hg16/bigZips/hg16.fa.gz |
-| hg15 | NCBI33 (April 2003) | https://hgdownload.soe.ucsc.edu/goldenPath/hg15/bigZips/chromFa.zip |
+| Year | Build | Assembly | Source |
+|---|---|---|---|
+| 2022 | hs1  | T2T-CHM13 v2.0 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hs1/bigZips/hs1.fa.gz) |
+| 2013 | hg38 | GRCh38 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz) |
+| 2009 | hg19 | GRCh37 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz) |
+| 2006 | hg18 | NCBI36 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hg18/bigZips/hg18.fa.gz) |
+| 2004 | hg17 | NCBI35 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hg17/bigZips/hg17.fa.gz) |
+| 2003 | hg16 | NCBI34 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hg16/bigZips/hg16.fa.gz) |
+| 2003 | hg15 | NCBI33 | [Link](https://hgdownload.soe.ucsc.edu/goldenPath/hg15/bigZips/chromFa.zip) |
 
 Source table: [`config/genomes.tsv`](../config/genomes.tsv) (pulled from the release's provenance archive, `Group4_2026:/reference-assets/releases/2026-08-25/provenance/build-workflow-scripts.tar.zst`). Re-download any build directly with [`scripts/download_reference.sh`](../scripts/download_reference.sh):
 
