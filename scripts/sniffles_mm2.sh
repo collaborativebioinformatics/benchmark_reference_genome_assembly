@@ -27,24 +27,23 @@ dx cd /
 # -----------------------------------------------------------------------------
 export PATH="$HOME/env/bin:$PATH"
 if ! command -v sniffles >/dev/null 2>&1; then
-  log "installing tools"
-  if ! command -v micromamba >/dev/null 2>&1; then
-    curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
-    export PATH="$PWD/bin:$PATH"
-  fi
-  micromamba create -y -p "$HOME/env" -c conda-forge -c bioconda \
-  sniffles samtools rasusa zstd
-  export PATH="$HOME/env/bin:$PATH"
+  echo "installing tools"
+  if ! command -v micromamba >/dev/null 2>&1; then
+    curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+    export PATH="$PWD/bin:$PATH"
+  fi
+  micromamba create -y -p "$HOME/env" -c conda-forge -c bioconda \
+  python=3.11 sniffles samtools rasusa zstd
+  export PATH="$HOME/env/bin:$PATH"
 fi
 
 # -----------------------------------------------------------------------------
 # 2. Reference (a .tar.zst under genomes/<build>/reference/)
 # -----------------------------------------------------------------------------
-dx download "${PROJ}:${REL}/genomes/${BUILD}/reference/${BUILD}.reference.tar.zst" -o ref.tar.zst
+dx download "${PROJ}:${REL}/genomes/${BUILD}/reference/${BUILD}.reference.tar.zst" -f -o ref.tar.zst
 unzstd -f ref.tar.zst
-tar -xf "${BUILD}.reference.tar" 2>/dev/null || true
-REF="${BUILD}.fa"
-[ -f "$REF" ] || REF=$(ls "${BUILD}"*.fa 2>/dev/null | head -1)
+tar -xf ref.tar
+REF="references/${BUILD}/${BUILD}.fa"
 
 # -----------------------------------------------------------------------------
 # 3. Obtain BAM files
@@ -66,8 +65,8 @@ sniffles --input "$BAM" --reference "$REF" \
 --minsvlen 50 --output-rnames --threads "$THREADS"
 
 {
-  echo "sniffles: $(sniffles --version)"
-  echo "source_alignment: ${BAM_REMOTE} (map-hifi)"
+  echo "sniffles: $(sniffles --version)"
+  echo "source_alignment: ${BAM_REMOTE} (map-hifi)"
 } > "versions.${BUILD}.mm2.txt"
 
 dx upload "$VCF" "$SNF" "versions.${BUILD}.mm2.txt" --destination "${OUTDIR}/" --wait
