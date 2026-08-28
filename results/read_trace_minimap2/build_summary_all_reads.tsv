@@ -1,7 +1,0 @@
-dataset	build	n	match	match_pct	other_chrom	other_chrom_pct	type_changed	type_changed_pct	size_changed	size_changed_pct	below_50	below_50_pct	no_sv_call	no_sv_call_pct
-all_supporting_reads	hg15	194301	62051	31.94	4365	2.25	16336	8.41	18939	9.75	470	0.24	92140	47.42
-all_supporting_reads	hg16	194301	62497	32.17	6009	3.09	16441	8.46	19103	9.83	492	0.25	89759	46.20
-all_supporting_reads	hg17	194301	63090	32.47	4918	2.53	16623	8.56	19566	10.07	476	0.24	89628	46.13
-all_supporting_reads	hg18	194301	63133	32.49	4077	2.10	16662	8.58	19530	10.05	480	0.25	90419	46.54
-all_supporting_reads	hg19	194301	63329	32.59	2537	1.31	16895	8.70	19526	10.05	410	0.21	91604	47.15
-all_supporting_reads	hg38	194301	61272	31.53	1699	0.87	16484	8.48	17987	9.26	365	0.19	96494	49.66
