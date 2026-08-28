@@ -1,0 +1,7 @@
+dataset	build	n	match	match_pct	other_chrom	other_chrom_pct	type_changed	type_changed_pct	size_changed	size_changed_pct	below_50	below_50_pct	no_sv_call	no_sv_call_pct
+per_sv_majority_of_all_supporting_reads	hg15	22704	7405	32.62	548	2.41	2205	9.71	2555	11.25	38	0.17	9953	43.84
+per_sv_majority_of_all_supporting_reads	hg16	22704	7466	32.88	718	3.16	2241	9.87	2573	11.33	42	0.18	9664	42.57
+per_sv_majority_of_all_supporting_reads	hg17	22704	7531	33.17	625	2.75	2251	9.91	2642	11.64	39	0.17	9616	42.35
+per_sv_majority_of_all_supporting_reads	hg18	22704	7541	33.21	466	2.05	2251	9.91	2635	11.61	39	0.17	9772	43.04
+per_sv_majority_of_all_supporting_reads	hg19	22704	7542	33.22	283	1.25	2308	10.17	2648	11.66	35	0.15	9888	43.55
+per_sv_majority_of_all_supporting_reads	hg38	22704	7290	32.11	190	0.84	2156	9.50	2403	10.58	35	0.15	10630	46.82
