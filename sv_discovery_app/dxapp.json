@@ -1,0 +1,114 @@
+{
+  "name": "sv_discovery",
+  "title": "SV Discovery Against Reference Genome",
+  "summary": "Align user-submitted long reads to a chosen reference genome build and call structural variants with Sniffles2",
+  "dxapi": "1.0.0",
+  "version": "0.1.0",
+  "inputSpec": [
+    {
+      "name": "reads",
+      "label": "Input reads (FASTQ)",
+      "class": "file",
+      "patterns": ["*.fastq", "*.fastq.gz", "*.fq", "*.fq.gz"],
+      "help": "Long-read sequencing data (PacBio HiFi/CLR or ONT) in FASTQ format."
+    },
+    {
+      "name": "reference_build",
+      "label": "Reference genome build",
+      "class": "string",
+      "choices": ["hg15", "hg16", "hg17", "hg18", "hg19", "hg38", "hs1"],
+      "default": "hg38",
+      "help": "Which human reference genome build to align against."
+    },
+    {
+      "name": "aligner",
+      "label": "Aligner",
+      "class": "string",
+      "choices": ["minimap2", "winnowmap"],
+      "default": "minimap2",
+      "help": "Which long-read aligner to use."
+    },
+    {
+      "name": "preset",
+      "label": "Alignment preset",
+      "class": "string",
+      "choices": ["map-hifi", "map-pb", "map-ont"],
+      "default": "map-hifi",
+      "help": "Sequencing technology preset passed to the aligner."
+    },
+    {
+      "name": "min_sv_len",
+      "label": "Minimum SV length",
+      "class": "int",
+      "default": 50,
+      "optional": true,
+      "help": "Minimum structural variant length reported by Sniffles2."
+    },
+    {
+      "name": "downsample",
+      "label": "Downsample reads to target coverage",
+      "class": "boolean",
+      "default": true,
+      "optional": true,
+      "help": "Randomly subsample reads to a target coverage before alignment, for fair comparisons across runs/references."
+    },
+    {
+      "name": "target_coverage",
+      "label": "Target coverage (x)",
+      "class": "float",
+      "default": 15,
+      "optional": true,
+      "help": "Desired coverage depth after downsampling, e.g. 15 for 15x."
+    },
+    {
+      "name": "genome_size",
+      "label": "Genome size (for coverage calculation)",
+      "class": "string",
+      "default": "3.1g",
+      "optional": true,
+      "help": "Approximate genome size used to compute the downsampling fraction, e.g. 3.1g for the full human genome."
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "sv_vcf",
+      "label": "Structural variant calls (VCF)",
+      "class": "file",
+      "patterns": ["*.vcf"]
+    },
+    {
+      "name": "sv_snf",
+      "label": "Sniffles snapshot file (SNF)",
+      "class": "file",
+      "patterns": ["*.snf"]
+    },
+    {
+      "name": "alignment_bam",
+      "label": "Sorted, indexed alignment (BAM)",
+      "class": "file",
+      "patterns": ["*.bam"]
+    }
+  ],
+  "runSpec": {
+    "code": "src/sv_discovery.sh",
+    "interpreter": "bash",
+    "distribution": "Ubuntu",
+    "release": "24.04",
+    "version": "0",
+    "timeoutPolicy": {
+      "*": {"hours": 12}
+    }
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "allProjects": "VIEW",
+    "network": ["*"]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {"instanceType": "mem2_ssd1_v2_x8"}
+      }
+    }
+  }
+}
