@@ -84,7 +84,18 @@ def main():
     frac_mat = frac_mat.reindex(sorted(frac_mat.columns), axis=1)
     frac_mat.to_csv(out / "all_reads_match_fraction_matrix.tsv", sep="\t", float_format="%.4f")
 
-    pattern = meta.join(class_mat.add_prefix("cons_"), how="left").join(frac_mat.add_prefix("matchfrac_"), how="left")
+    # Confidence of the majority vote itself: what fraction of an SV's supporting
+    # reads in this build agree with its dominant_class (whatever that class is),
+    # as opposed to matchfrac_* which specifically tracks agreement with MATCH.
+    domfrac_mat = sv.pivot(index="anchor_id", columns="build", values="dominant_fraction")
+    domfrac_mat = domfrac_mat.reindex(sorted(domfrac_mat.columns), axis=1)
+    domfrac_mat.to_csv(out / "dominant_fraction_matrix.tsv", sep="\t", float_format="%.4f")
+
+    pattern = (
+        meta.join(class_mat.add_prefix("cons_"), how="left")
+        .join(frac_mat.add_prefix("matchfrac_"), how="left")
+        .join(domfrac_mat.add_prefix("domfrac_"), how="left")
+    )
     class_cols = [c for c in pattern.columns if c.startswith("cons_")]
     pattern["n_builds_match_cons"] = (pattern[class_cols] == "MATCH").sum(axis=1)
     pattern["n_builds_disrupted_cons"] = (pattern[class_cols] != "MATCH").sum(axis=1)
