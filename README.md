@@ -87,7 +87,7 @@ HG002 GIAB reference sample, aligned to GRCh38, subset to the *FLG* gene
 region (chr1:152,302,165–152,325,239) — a repetitive, structurally 
 complex locus useful for stress-testing SV callers.
 
-# Prerequisites
+## Prerequisites
 
 - A [DNAnexus](https://www.dnanexus.com/) account with access to this project
 - Python 3.10 installed
@@ -96,7 +96,7 @@ complex locus useful for stress-testing SV callers.
   running/debugging on a Cloud Workstation
 - Install the Streamlit library
 
-# Usage
+## Usage
 
 1. Open the Streamlit app in your browser (usually `http://localhost:8501`)
 2. Upload a FASTQ/BAM file, or select one already in your DNAnexus project
@@ -104,8 +104,15 @@ complex locus useful for stress-testing SV callers.
 4. View results: [describe what the output looks like — table of SVs? VCF download? plot?]
 
 # examples
+<img width="3196" height="1744" alt="image" src="https://github.com/user-attachments/assets/72bb3e94-87c6-4edb-b1ac-571101d16b3f" />
+<img width="3150" height="1646" alt="image" src="https://github.com/user-attachments/assets/b022eadc-5ca6-44d8-b9c5-fbdaf70d4789" />
+<img width="3200" height="1730" alt="image" src="https://github.com/user-attachments/assets/3ee1da15-9bae-4b00-a7e7-f1b2704c40cd" />
 
-# Limitations
+<img width="3100" height="1622" alt="image" src="https://github.com/user-attachments/assets/bbfef272-3580-4056-9b7b-bc54b0e9ee08" />
+<img width="3138" height="1554" alt="image" src="https://github.com/user-attachments/assets/6a3ca71b-6dec-46c9-8bad-a51d69630803" />
+<img width="3182" height="1532" alt="image" src="https://github.com/user-attachments/assets/a67cf5e8-342a-4e9f-b563-a6d4b3770949" />
+
+## Limitations
 
 This is a demo/prototype built for a hackathon, and comes with several 
 known constraints:
