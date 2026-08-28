@@ -69,6 +69,12 @@ Under the read-name-tracing benchmark, only the anchor build (hs1) was scored di
 ![Figure 3: Inherited TP Rate Across Builds - Anchor: hs1](figures/benchmark_rname/fig1_ladder_inherited_tp_rate.png)
 ![Figure 4: Accuracy Score of the Truvari per Aligner](figures/benchmark_rname/fig2_anchor_accuracy.png)  
 
+### SV Discovery App
+
+A structural variant (SV) discovery tool that runs on DNAnexus and provides
+a web-based interface for uploading long-read sequencing data, running SV
+calling, and visualizing results.
+
 ## Members
 | Team member | Role |
 | :--- | :--- |
