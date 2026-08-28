@@ -1,0 +1,17 @@
+﻿# SV discovery app
+*.bam
+*.bai
+*.fastq
+*.fq
+*.sam
+*.vcf
+*.fa
+*.fasta
+*.gz
+*.tar
+*.tar.gz
+__pycache__/
+*.pyc
+venv/
+env/
+.venv/
