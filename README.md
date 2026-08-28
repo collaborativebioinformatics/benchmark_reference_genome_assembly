@@ -71,9 +71,60 @@ Under the read-name-tracing benchmark, only the anchor build (hs1) was scored di
 
 ### SV Discovery App
 
-A structural variant (SV) discovery tool that runs on DNAnexus and provides
-a web-based interface for uploading long-read sequencing data, running SV
-calling, and visualizing results.
+A structural variant (SV) discovery tool that runs on DNAnexus and provides a web-based interface for uploading long-read sequencing data, running SV calling, and visualizing results.
+
+This project has two components:
+
+- **`sv_discovery_app/`** — a DNAnexus applet that runs [SV caller name, 
+  e.g. pbsv/Sniffles/cuteSV] on aligned long-read BAM files to detect 
+  structural variants (insertions, deletions, duplications, etc.).
+- **`sv_discovery_webapp/`** — a Streamlit web interface that lets a user 
+  upload/select sequencing data, trigger the DNAnexus applet, and view 
+  the resulting SV calls (e.g., as a table/VCF viewer or plot).
+
+The pipeline was tested using PacBio HiFi CCS 15kb long reads from the 
+HG002 GIAB reference sample, aligned to GRCh38, subset to the *FLG* gene 
+region (chr1:152,302,165–152,325,239) — a repetitive, structurally 
+complex locus useful for stress-testing SV callers.
+
+# Prerequisites
+
+- A [DNAnexus](https://www.dnanexus.com/) account with access to this project
+- Python 3.10 installed
+- `dx` CLI tool (`pip install dxpy`) — [setup guide](https://documentation.dnanexus.com/getting-started)
+- Logged in via `dx login`, with SSH keys set up (`dx generate_ssh_key`) if 
+  running/debugging on a Cloud Workstation
+- Install the Streamlit library
+
+# Usage
+
+1. Open the Streamlit app in your browser (usually `http://localhost:8501`)
+2. Upload a FASTQ/BAM file, or select one already in your DNAnexus project
+3. [Describe: click "Run SV discovery", select reference build, etc.]
+4. View results: [describe what the output looks like — table of SVs? VCF download? plot?]
+
+# examples
+
+# Limitations
+
+This is a demo/prototype built for a hackathon, and comes with several 
+known constraints:
+
+- **Dataset scope**: The app currently only has access to data included 
+  in the group project — the HG002 (GIAB) reference sample. It has not 
+  been tested against other samples or datasets.
+
+- **Sample size / runtime**: Due to processing time, only small read 
+  subsets can practically be tested. For example, a 100-read sample takes 
+  approximately 5 minutes to run end-to-end. Larger samples (e.g., 
+  whole-chromosome or whole-genome scale) were not tested and would 
+  require significantly longer runtimes.
+
+- **Platform dependency**: The app is exclusive to users with a DNAnexus 
+  account, since the SV discovery step relies on DNAnexus's cloud 
+  computing platform to run. It cannot currently be run fully offline or 
+  without platform access.
+
 
 ## Members
 | Team member | Role |
