@@ -40,7 +40,7 @@ Structural variants were called from each whole-genome alignment using Sniffles2
 HG002 truth set for the hs1 reference genome was downloaded from the Genome in a Bottle (GIAB). Each of the Sniffles callset, except the hs1, were lifted to the hs1 coordinates. The callsets were then inputted into Truvari, with the HG002 truth set for the hs1 reference genome. The results can be found in `figures/benchmark_liftover`.  
 
 #### **6.2 Using RNAMES from Sniffles**
-The anchor chosen for the benchmarking process is hs1, since it has a native GIAB truth set. The Sniffle calls were all PASS calls and BND/INV labels were dropped. The hs1 callset was scored against the truth sets. The non-anchor build callset inherited a TP label by the matching read names from Sniffle against the classified TP as long as the OVERLAP_min is 0.5. The results can be found in `figures/benchmark_rnames`. 
+The anchor chosen for the benchmarking process is hs1, since it has a native GIAB truth set. The Sniffle calls were all PASS calls and BND/INV labels were dropped. The hs1 callset was scored against the truth sets. The non-anchor build callset inherited a TP label by the matching read names from Sniffle against the classified TP as long as the OVERLAP_min is 0.5. The results can be found in `figures/benchmark_rnames`.
 
 ## Tools Used:
 | Tool | Version |
