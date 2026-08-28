@@ -8,7 +8,7 @@
 Structural variant detection is always relative to a reference assembly, and while humans now have a complete telomere-to-telomere reference, most species are stuck with fragmented draft assemblies. Researchers calling SVs against such drafts have no principled way to know what their callset is missing. Therefore, we would like to systematically investigate how assembly quality influences SV calling.
 
 ## Methods  
-**Reference Genome Assemblies**  
+### **Reference Genome Assemblies**  
 7 reference genome assemblies, spanning the history of the human genome reference from its first public draft to the current telomere-to-telomere assembly, were used:
 - hg15 (2003)
 - hg16 (NCBI34, 2003)
@@ -18,10 +18,10 @@ Structural variant detection is always relative to a reference assembly, and whi
 - hg38 (GRCh38, 2013)
 - hs1 (T2T-CHM13 v2.0, 2022)
 
-**1. Subsample Benchmark Sample**   
+### **1. Subsample Benchmark Sample**   
 Our current workflow only consists of the benchmark sample HG002 from the PacBio CCS long-reads 15kb (~30x coverage). Which was then subsampled deterministically prior to alignment, to ~15x rather than the full 30x, primarily to reduce runtime across 7 reference builds x 2 aligners.
 
-**2. Read Alignment**  
+### **2. Read Alignment**  
 Reads were aligned to each reference build independently using 2 long-read aligners, run in parallel: **Winnowmap** and **minimap2**.  
 
 - **Winnowmap**: a repetitive k-mer list was pre-computed for each reference build with Meryl and supplied via `-W` flag and alignment was run with `-ax map-pb` preset
@@ -29,14 +29,18 @@ Reads were aligned to each reference build independently using 2 long-read align
 
 Both aligners were run genome-wide to avoid displacing reads that align more accurately elsewhere in the genome onto the target regions, which would display false structural-variant signal. Alignments were coordinate-sorted and indexed with samtools.  
 
-**4. Sort and Index - samtools**  
+### **4. Sort and Index - samtools**  
 Sorted and indexed the aligned reads using samtools
 
-**5. Structural Variant Calling - Sniffles2**  
+### **5. Structural Variant Calling - Sniffles2**  
 Structural variants were called from each whole-genome alignment using Sniffles2 using the following parameter: `--minsvlen 50`, and produced 1 VCF and 1 SNF file per reference build x aligner combination.  
 
-**Benchmarking**  
-[In works]
+### **6. Benchmarking - Truvari**
+#### **6.1 Using LiftOver**
+HG002 truth set for the hs1 reference genome was downloaded from the Genome in a Bottle (GIAB). Each of the Sniffles callset, except the hs1, were lifted to the hs1 coordinates. The callsets were then inputted into Truvari, with the HG002 truth set for the hs1 reference genome. The results can be found in `figures/benchmark_liftover`.  
+
+#### **6.2 Using RNAMES from Sniffles**
+The anchor chosen for the benchmarking process is hs1, since it has a native GIAB truth set. The Sniffle calls were all PASS calls and BND/INV labels were dropped. The hs1 callset was scored against the truth sets. The non-anchor build callset inherited a TP label by the matching read names from Sniffle against the classified TP as long as the OVERLAP_min is 0.5. The results can be found in `figures/benchmark_rnames`. 
 
 ## Tools Used:
 | Tool | Version |
@@ -48,25 +52,36 @@ Structural variants were called from each whole-genome alignment using Sniffles2
 | samtools | 1.24 |
 | rasusa |  |
 | szstd |  |
+| LiftOver |  |
 
 ## Workflow Diagram [in-works]
 
 ![Workflow Illustration](flowchart_diagram.png)
 
 ## Results
+### Benchmarking - LiftOver
+The results show that the choice of reference assembly had a much greater influence on SV benchmarking than the choice of mapper. Callsets generated directly against hs1 agreed substantially better with the hs1-based HG002 truth set than callsets generated against older references and subsequently lifted to hs1, while minimap2 performed only modestly better than Winnowmap. Among the older assemblies, performance was broadly similar and did not improve consistently with assembly recency, suggesting that coordinate projection and reference-specific sequence differences dominate over the historical ordering of the builds. Deletions were generally recovered more reliably than insertions, and performance declined for longer SVs, particularly very large events. The strict common mask retained most benchmark-region bases but excluded a disproportionately large fraction of SVs, especially long events and false negatives, showing that excluded regions are much more difficult and structurally variable than the genome average. Relaxing full-event containment to endpoint containment recovered additional variants without materially changing the enrichment patterns, indicating that the principal conclusions are robust to reasonable changes in mask definition. Across true positives, false positives and false negatives, SVs were consistently concentrated in simple repeats, low-complexity sequence, satellites, segmental duplications and low-mappability regions, while coding and actively transcribed regions were generally depleted. Most SV clusters were either shared across nearly all references or confined to a single reference, with relatively few showing intermediate sharing. Reference-specific and partially shared clusters were particularly associated with segmental duplications and low-mappability sequence, whereas repeat enrichment remained evident across most sharing classes. Overall, the analysis indicates that difficult repetitive sequence and cross-assembly coordinate compatibility are the principal determinants of SV reproducibility, while mapper choice has a smaller effect; the strong hs1 result should therefore be interpreted as a combination of improved reference representation and the absence of liftover and truth-coordinate mismatch, rather than solely as superior mapping performance.
+![Figure 1: Score of Reference Assembly against hs1 Truth - Overall Performance](figures/benchmark_liftover/01-overall-performance.png)
+![Figure 2: F1 Score of SV Type](figures/benchmark_liftover/02-f1-by-svtype.png)  
+
+### Benchmarking - RNames
+
 
 ## Members
 | Team member | Role |
 | :--- | :--- |
 | **Susanne Pfeifer** | Group Leader |
-| Alisa Iakupova | xxx |
-| Daniil Khlebnikov | xxx |
-| German Demidov | xxx |
-| Miguel Angel Trejo Acosta | xxx |
-| Steven Chen | xxx |
-| Tammy Sisodiya | xxx |
-| Vy Dang | xxx |
-| Yunkia Liu | xxx |
+| Alisa Iakupova | Pipeline Implementation |
+| Daniil Khlebnikov | Pipeline Implementation |
+| German Demidov | Pipeline Implementation |
+| Miguel Angel Trejo Acosta | Pipeline Implementation & Website Demo Builder |
+| Steven Chen | Pipeline Implementation & AI Wrapper |
+| Tammy Sisodiya | Pipeline Implementation & Writer |
+| Vy Dang | Pipeline Implementation & GitHub |
+| Yunjia Liu | Pipeline Implementation & Writer |
 
 ## References
 Smolka, M., Paulin, L.F., Grochowski, C.M. et al. Detection of mosaic and population-level structural variants with Sniffles2. Nat Biotechnol 42, 1571–1580 (2024). https://doi.org/10.1038/s41587-023-02024-y
+
+## Future Implementation
+- To help researchers on
