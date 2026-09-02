@@ -1,0 +1,15 @@
+aligner,source_build,precision,recall,f1
+minimap2,hg15,0.417,0.273,0.330
+minimap2,hg16,0.420,0.276,0.333
+minimap2,hg17,0.423,0.277,0.335
+minimap2,hg18,0.423,0.277,0.334
+minimap2,hg19,0.426,0.279,0.337
+minimap2,hg38,0.430,0.268,0.330
+minimap2,hs1,0.9196,0.6617,0.7696
+winnowmap,hg15,0.410,0.264,0.321
+winnowmap,hg16,0.417,0.265,0.324
+winnowmap,hg17,0.421,0.265,0.325
+winnowmap,hg18,0.421,0.266,0.326
+winnowmap,hg19,0.423,0.267,0.328
+winnowmap,hg38,0.428,0.259,0.323
+winnowmap,hs1,0.9006,0.6200,0.7344
