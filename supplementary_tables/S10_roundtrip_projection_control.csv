@@ -1,0 +1,13 @@
+aligner,route,eligible_input_calls,calls_after_outward_lift,outward_survival_pct,return_survival_pct,native_hs1_f1,roundtrip_f1,span_tolerance_pct
+minimap2,hs1_to_hg38_to_hs1,22597,11269,49.87,98.19,0.770,0.396,10
+minimap2,hs1_to_hg19_to_hs1,22652,10932,48.26,98.43,0.770,0.394,10
+minimap2,hs1_to_hg18_to_hs1,22685,10830,47.74,98.57,0.770,0.393,10
+minimap2,hs1_to_hg17_to_hs1,22704,10807,47.60,98.66,0.770,0.393,10
+minimap2,hs1_to_hg16_to_hs1,22678,10804,47.64,98.53,0.770,0.391,10
+minimap2,hs1_to_hg15_to_hs1,22577,10769,47.70,98.10,0.770,0.390,10
+winnowmap,hs1_to_hg38_to_hs1,23841,11339,47.56,96.72,0.734,0.381,10
+winnowmap,hs1_to_hg19_to_hs1,24082,10813,44.90,97.69,0.734,0.379,10
+winnowmap,hs1_to_hg18_to_hs1,24128,10684,44.28,97.89,0.734,0.378,10
+winnowmap,hs1_to_hg17_to_hs1,24160,10652,44.09,98.66,0.734,0.378,10
+winnowmap,hs1_to_hg16_to_hs1,24093,10719,44.49,97.74,0.734,0.377,10
+winnowmap,hs1_to_hg15_to_hs1,23865,10725,44.94,96.81,0.734,0.375,10
