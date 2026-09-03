@@ -148,7 +148,7 @@ log "BAM uploaded"
 VCF="HG002.${BUILD}.winnowmap.sniffles.vcf.gz"
 log "calling with sniffles"
 sniffles --input "$BAM" --reference "${BUILD}.fa" \
-         --vcf "$VCF" --snf "HG002.${BUILD}.winnowmap.snf" \
+         --vcf "$VCF" --snf "HG002.${BUILD}.winnowmap.sniffles.snf" \
          --minsvlen 50 --output-rnames --threads "$THREADS"
 
 # -----------------------------------------------------------------------------
